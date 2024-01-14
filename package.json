@@ -1,0 +1,36 @@
+{
+  "name": "ts-chrome-extension-boilerplate",
+  "version": "0.0.1",
+  "description": "A boilerplate for Chrome Extensions written in TypeScript",
+  "main": "index.ts",
+  "scripts": {
+    "build": "yarn clean && yarn build:ts && yarn build:scss && yarn copy:assets",
+    "dev": "concurrently \"yarn:start\" \"yarn:copy:assets\" -w",
+    "clean": "rm -rf extension",
+    "build:ts": "tsc",
+    "build:scss": "node-sass src -o extension --recursive",
+    "watch:ts": "tsc --watch",
+    "watch:scss": "node-sass src -o extension --recursive --watch",
+    "copy:assets": "cp -R static/* extension/ && cp -R src/* extension/ && find extension -type f \\( -iname '*.ts' -o -iname '*.scss' \\) -delete",
+    "start": "concurrently \"yarn:watch:*\""
+  },
+  "keywords": [
+    "TypeScript",
+    "Chrome Extension"
+  ],
+  "author": "Sadegh Nobari",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/chrome": "^0.0.256",
+    "@types/crypto-js": "^4.1.1",
+    "@types/marked": "^4.0.8",
+    "concurrently": "^8.2.2",
+    "live-server": "^1.1.0",
+    "node-sass": "^9.0.0",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "crypto-js": "^4.1.1",
+    "marked": "^4.2.12"
+  }
+}
