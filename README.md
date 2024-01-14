@@ -1,5 +1,5 @@
 <div align="center">
-    <img src="https://raw.githubusercontent.com/nobari/chrome-extension-ts-starter/master/logo/logo-128.png"/>
+    <img src="https://raw.githubusercontent.com/nobari/chrome-extension-ts-starter/master/static/logo/logo-128.png"/>
     <h1>Chrome Extension TypeScript Starter</h1>
     <h3>A starter template of a Chrome extension version 3 with TypeScript</h3>
 </div>
