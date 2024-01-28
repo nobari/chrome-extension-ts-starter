@@ -8,7 +8,7 @@ const DIST_FOLDER = 'extension'
 
 const config = (env: { production: boolean }) =>
   ({
-    devtool: 'inline-source-map',
+    devtool: env.production ? false : 'inline-source-map',
     mode: env.production ? 'production' : 'development',
     entry: {
       popup: './src/popup/index.ts',
