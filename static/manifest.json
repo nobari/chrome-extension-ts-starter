@@ -8,10 +8,10 @@
     "48": "logo/logo-48.png",
     "128": "logo/logo-128.png"
   },
-  "options_page": "settings/settings.html",
+  "options_page": "options/index.html",
   "action": {
     "default_title": "Summarizer",
-    "default_popup": "popup/popup.html",
+    "default_popup": "popup/index.html",
     "default_icon": "logo/logo-128.png"
   },
   "permissions": ["activeTab", "tabs", "storage", "scripting"],

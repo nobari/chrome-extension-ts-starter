@@ -57,7 +57,7 @@ To install the extension into a Chromium-based browser, such as Google Chrome, f
 To make use of the hot reload feature for your project, you can start the development server by entering the command:
 
 ```bash
-yarn dev
+yarn start
 ```
 
 This should enable hot reloading, which automatically updates your application with most changes you make to the code without the need for a manual refresh.
@@ -68,7 +68,7 @@ If you've made updates to a browser extension but they aren't appearing, you'll 
 2. Locate the card representing your extension.
 3. Click on the circular arrow icon (↻), which represents the reload action, on that card.
 
-It’s important to note that if you are making changes to the settings page or popup UI of the extension, a full reload is often not required to see the updates. However, for other types of changes, particularly those that affect background scripts or manifest file updates, you'll need to perform the manual reload process as described above to see the changes take effect.
+It’s important to note that if you are making changes to the options page or popup UI of the extension, a full reload is often not required to see the updates. However, for other types of changes, particularly those that affect background scripts or manifest file updates, you'll need to perform the manual reload process as described above to see the changes take effect.
 
 ### compatiblity
 
@@ -114,13 +114,13 @@ project-root/
 │
 ├── src/
 │   ├── popup/
-│   ├── settings/
+│   ├── options/
 │   ├── foreground
 │   └── service-worker
 │
 ├── extension/
 │   ├── popup/
-│   ├── settings/
+│   ├── options/
 │   ├── foreground
 │   ├── service-worker
 │   └── [other optimized assets]
