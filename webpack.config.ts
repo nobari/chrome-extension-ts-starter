@@ -3,13 +3,26 @@ import HtmlWebpackPlugin from 'html-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import CopyWebpackPlugin from 'copy-webpack-plugin'
 import { CleanWebpackPlugin } from 'clean-webpack-plugin'
-import { Configuration } from 'webpack'
+import {
+  Configuration as WebpackConfiguration,
+  WebpackOptionsNormalized
+} from 'webpack'
+
+// This interface is merging the properties from the webpack-dev-server typings.
+interface Configuration extends WebpackConfiguration {
+  devServer?: WebpackOptionsNormalized['devServer']
+}
 const DIST_FOLDER = 'extension'
 
-const config = (env: { production: boolean }) =>
-  ({
+const config = (env: { production: boolean }) => {
+  const config: Configuration = {
     devtool: env.production ? false : 'inline-source-map',
     mode: env.production ? 'production' : 'development',
+    devServer: {
+      liveReload: true,
+      hot: true, // Enable Hot Module Replacement
+      open: 'popup' // Open the browser after server has been started
+    },
     entry: {
       popup: './src/popup/index.ts',
       options: './src/options/index.ts',
@@ -67,6 +80,8 @@ const config = (env: { production: boolean }) =>
         chunks: ['options']
       })
     ]
-  } as Configuration)
+  }
+  return config
+}
 
 export default config
